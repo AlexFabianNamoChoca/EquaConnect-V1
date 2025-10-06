@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquaConnect - Soluciones Integrales de Comercio Exterior</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de colores basadas en el logo */
+        :root {
+            --primary: #1a3a5f; /* Azul oscuro */
+            --secondary: #2a6eb8; /* Azul medio */
+            --accent: #f9a826; /* Amarillo/naranja */
+            --light: #f5f7fa; /* Gris claro */
+            --dark: #333333; /* Gris oscuro */
+            --text: #444444; /* Gris para texto */
+            --white: #ffffff; /* Blanco */
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 1.5cm;
+            height: 1.5cm;
+            object-fit: contain;
+        }
+
+        .logo-placeholder {
+            width: 1.5cm;
+            height: 1.5cm;
+            background-color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-placeholder::after {
+            content: "Logo 1.5cm";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.2;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-left: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-content p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .service-details.active {
+            max-height: 500px;
+        }
+
+        /* Partners Section */
+        .partners {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+
+        .partners h2 {
+            margin-bottom: 40px;
+        }
+
+        .partners-subtitle {
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .partners-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .partners-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .partner-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 120px;
+            margin: 0 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .partner-logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .partner-item:hover .partner-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .carousel-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--secondary);
+        }
+
+        .carousel-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            background-color: var(--accent);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Logo Instructions */
+        .logo-instructions {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .logo-instructions h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .partner-item {
+                width: 160px;
+                height: 100px;
+                margin: 0 15px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float i {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                display: none;
+            }
+
+            .partner-item {
+                width: 140px;
+                height: 90px;
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Reemplazar el div placeholder con la imagen del logo -->
+                <img src="logo.png" alt="EquaConnect Logo" class="logo-img"> 
+                <!-- <div class="logo-placeholder"></div> -->
+                <div class="logo-text">EquaConnect</div>
+            </div>
+            <div class="mobile-menu">☰</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Quiénes Somos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <!--<li><a href="#aliados">Aliados</a></li>-->
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Conectamos tu negocio con el mundo</h1>
+            <p>Soluciones integrales de comercio internacional para empresas ecuatorianas y regionales que buscan expandirse más allá de sus fronteras.</p>
+            <a href="#servicios" class="btn">Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <h2>Quiénes Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>En <strong>EquaConnect</strong> creemos que el comercio exterior es más que mover productos: es construir puentes sólidos que conectan empresas con oportunidades en todo el mundo.</p>
+                    <p>Somos una firma especializada en soluciones integrales de comercio internacional, comprometida en ayudar a las empresas ecuatorianas y regionales a crecer más allá de sus fronteras. Nuestra experiencia combina conocimiento técnico, respaldo estratégico y una red global de aliados confiables que nos permite brindar seguridad, eficiencia y rentabilidad en cada operación.</p>
+                    <p>Nuestra misión es clara: simplificar la complejidad del comercio internacional. Desde la búsqueda de proveedores y asesoría en normativas, hasta la logística integral y la expansión hacia nuevos mercados, acompañamos a nuestros clientes en todo el proceso de internacionalización, garantizando confianza y resultados tangibles.</p>
+                    <p>En EquaConnect entendemos que cada negocio es único, por eso ofrecemos soluciones personalizadas que se ajustan a las necesidades, metas y capacidad de cada empresa. Nos distingue la transparencia, la atención al detalle y un firme compromiso con la excelencia.</p>
+                    <p>Con nosotros, tu empresa no solo importa o exporta: se conecta al mundo, se expande y crece con seguridad.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1551830893-b64bf2bfb9e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Equipo de EquaConnect">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="EquaSource">
+                    </div>
+                    <div class="service-content">
+                        <h3>EquaSource</h3>
+                        <p>Encuentra y negocia con proveedores internacionales confiables.</p>
+                        <button class="btn service-toggle">Ver más</button>
+                        <div class="service-details">
+                            <p>Con EquaSource encuentras y negocias directamente con proveedores internacionales confiables, reduciendo riesgos y asegurando la mejor relación entre calidad, precio y condiciones comerciales. Nuestro equipo analiza y valida a cada proveedor para garantizar que cumpla con los más altos estándares, brindándote seguridad en cada operación.</p>
+                            <p>Además, te acompañamos en la comparación de ofertas, la negociación de contratos y la estructuración de acuerdos estratégicos que te permitan acceder a oportunidades exclusivas en el mercado global.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="EquaTrade Consulting">
+                    </div>
+                    <div class="service-content">
+                        <h3>EquaTrade Consulting</h3>
+                        <p>Asesoría especializada en comercio exterior y normativas internacionales.</p>
+                        <button class="btn service-toggle">Ver más</button>
+                        <div class="service-details">
+                            <p>En un entorno cada vez más competitivo, EquaTrade Consulting se convierte en tu aliado estratégico. Ofrecemos asesoría especializada en comercio exterior, abarcando normativas internacionales, clasificación arancelaria, tratados comerciales, impuestos y procesos aduaneros.</p>
+                            <p>Nuestra consultoría está diseñada para optimizar tus operaciones, reducir costos y garantizar el cumplimiento legal en cada transacción. Contamos con la experiencia y el conocimiento para transformar la complejidad del comercio internacional en procesos claros, seguros y rentables.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1551830893-b64bf2bfb9e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="EquaExpand">
+                    </div>
+                    <div class="service-content">
+                        <h3>EquaExpand</h3>
+                        <p>Estrategias de internacionalización personalizadas para tu empresa.</p>
+                        <button class="btn service-toggle">Ver más</button>
+                        <div class="service-details">
+                            <p>Con EquaExpand llevamos tu negocio más allá de las fronteras. Desarrollamos estrategias de internacionalización personalizadas que impulsan tu crecimiento y fortalecen tu presencia en nuevos mercados.</p>
+                            <p>Desde estudios de mercado y análisis de competencia, hasta planes de entrada y posicionamiento global, nuestro servicio se adapta a la realidad de tu empresa y al potencial de cada destino. Te ayudamos a identificar oportunidades, minimizar riesgos y lograr una expansión sostenible y exitosa en el escenario internacional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="EquaLogistics">
+                    </div>
+                    <div class="service-content">
+                        <h3>EquaLogistics</h3>
+                        <p>Gestión integral de la cadena logística para importaciones y exportaciones.</p>
+                        <button class="btn service-toggle">Ver más</button>
+                        <div class="service-details">
+                            <p>En EquaLogistics integramos toda la cadena logística para que tus importaciones y exportaciones se gestionen de manera ágil, eficiente y sin complicaciones. Coordinamos transporte internacional, almacenamiento, trámites aduaneros y distribución local con soluciones diseñadas a tu medida.</p>
+                            <p>Nuestro enfoque se basa en ofrecer transparencia, puntualidad y control total de tus operaciones logísticas, para que puedas concentrarte en hacer crecer tu negocio mientras nosotros nos ocupamos de la parte operativa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="EquaCourier">
+                    </div>
+                    <div class="service-content">
+                        <h3>EquaCourier</h3>
+                        <p>Servicio puerta a puerta para envíos internacionales hacia Ecuador.</p>
+                        <button class="btn service-toggle">Ver más</button>
+                        <div class="service-details">
+                            <p>Con EquaCourier recibir tus paquetes desde cualquier parte del mundo hacia Ecuador nunca fue tan fácil y seguro. Nos encargamos del transporte internacional puerta a puerta, garantizando rapidez, trazabilidad y costos competitivos.</p>
+                            <p>Desde compras pequeñas hasta envíos más grandes, nuestro servicio está pensado para particulares y empresas que buscan una solución confiable, práctica y flexible. Con nosotros, tus productos llegan en el menor tiempo posible y en perfectas condiciones.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service  -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="EquaCourier">
+                    </div>
+                    <div class="service-content">
+                        <h3>EquaTec Machines</h3>
+                        <p>Innovación y potencia para tu crecimiento industrial.</p>
+                        <button class="btn service-toggle">Ver más</button>
+                        <div class="service-details">
+                            <p>EquaTec Machines es la solución ideal para empresas que buscan modernizar su infraestructura con maquinaria importada de alta calidad. Gestionamos cada etapa del proceso, garantizando seguridad, rapidez y cumplimiento total.</p>
+                            <p>Trabajamos con una red internacional de fabricantes certificados, brindándote acceso a tecnología avanzada que optimiza tus procesos productivos y reduce costos operativos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="aliados">
+        <div class="container">
+            <h2>Nuestros Aliados Estratégicos</h2>
+            <p class="partners-subtitle">Colaboramos con una red global de socios comerciales, instituciones financieras y operadores logísticos para ofrecerte soluciones integrales y confiables en comercio internacional.</p>
+            
+            <div class="partners-carousel">
+                <div class="partners-track" id="partnersTrack">
+                    <!-- Aliado 1 -->
+                    <div class="partner-item">
+                        <!--<div class="partner-placeholder">Aliado 1</div>-->
+                        <img src="SENAE.png" alt="SENAE" class="partner-logo">
+                    </div>
+                    <!-- Aliado 2 -->
+                    <div class="partner-item">
+                        <img src="MAERSK.png" alt="SENAE" class="partner-logo">
+                    </div>
+                    <!-- Aliado 3 -->
+                    <div class="partner-item">
+                        <div class="partner-placeholder">Aliado 3</div>
+                    </div>
+                    <!-- Aliado 4 -->
+                    <div class="partner-item">
+                        <div class="partner-placeholder">Aliado 4</div>
+                    </div>
+                    <!-- Aliado 5 -->
+                    <div class="partner-item">
+                        <div class="partner-placeholder">Aliado 5</div>
+                    </div>
+                    <!-- Aliado 6 -->
+                    <div class="partner-item">
+                        <div class="partner-placeholder">Aliado 6</div>
+                    </div>
+                    <!-- Aliado 7 -->
+                    <div class="partner-item">
+                        <div class="partner-placeholder">Aliado 7</div>
+                    </div>
+                    <!-- Aliado 8 -->
+                    <div class="partner-item">
+                        <div class="partner-placeholder">Aliado 8</div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="prevBtn">&#10094;</button>
+                    <button class="carousel-btn" id="nextBtn">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Ponte en contacto con nosotros</h3>
+                    <p>Estamos aquí para ayudarte a expandir tu negocio a nivel internacional. Contáctanos para una consulta gratuita.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Av. Principal 123, Guayaquil, Ecuador</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+593 4 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@equaconnect.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <h4>Horario de atención</h4>
+                                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                                <p>Sábados: 9:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me/593987654321?text=Hola%20EquaConnect,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20de%20comercio%20exterior" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Enviar mensaje por WhatsApp
+                    </a>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio de interés</label>
+                            <select id="service" class="form-control">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="EquaSource">EquaSource</option>
+                                <option value="EquaTrade Consulting">EquaTrade Consulting</option>
+                                <option value="EquaExpand">EquaExpand</option>
+                                <option value="EquaLogistics">EquaLogistics</option>
+                                <option value="EquaCourier">EquaCourier</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>EquaConnect</h3>
+                    <p>Conectamos tu negocio con el mundo a través de soluciones integrales de comercio internacional.</p>
+                    
+                    <!-- Redes Sociales -->
+                    <div class="social-links">
+                        <a href="https://facebook.com/equaconnect" class="social-link" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/equaconnect" class="social-link" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://instagram.com/equaconnect" class="social-link" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">EquaSource</a></li>
+                        <li><a href="#servicios">EquaTrade Consulting</a></li>
+                        <li><a href="#servicios">EquaExpand</a></li>
+                        <li><a href="#servicios">EquaLogistics</a></li>
+                        <li><a href="#servicios">EquaCourier</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Quiénes Somos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#aliados">Aliados</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li>📍 Av. Principal 123, Guayaquil</li>
+                        <li>📞 +593 4 123 4567</li>
+                        <li>✉️ info@equaconnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EquaConnect. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/message/TOCLCJXUJ62CM1" class="whatsapp-float" target="_blank" title="Chatear por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Service details toggle
+        document.querySelectorAll('.service-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const details = this.nextElementSibling;
+                details.classList.toggle('active');
+                
+                if (details.classList.contains('active')) {
+                    this.textContent = 'Ver menos';
+                } else {
+                    this.textContent = 'Ver más';
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.backgroundColor = 'var(--white)';
+            }
+        });
+
+        // Partners Carousel
+        const track = document.getElementById('partnersTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const partnerItems = document.querySelectorAll('.partner-item');
+        const itemWidth = partnerItems[0].offsetWidth + 40; // width + margin
+        let position = 0;
+        const maxPosition = -((partnerItems.length - 5) * itemWidth);
+
+        function updateButtons() {
+            prevBtn.disabled = position >= 0;
+            nextBtn.disabled = position <= maxPosition;
+        }
+
+        prevBtn.addEventListener('click', function() {
+            if (position < 0) {
+                position += itemWidth;
+                track.style.transform = `translateX(${position}px)`;
+                updateButtons();
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            if (position > maxPosition) {
+                position -= itemWidth;
+                track.style.transform = `translateX(${position}px)`;
+                updateButtons();
+            }
+        });
+
+        // Initialize button states
+        updateButtons();
+
+        // Auto-scroll carousel
+        let autoScroll = setInterval(() => {
+            if (position > maxPosition) {
+                position -= itemWidth;
+                track.style.transform = `translateX(${position}px)`;
+                updateButtons();
+            } else {
+                position = 0;
+                track.style.transform = `translateX(${position}px)`;
+                updateButtons();
+            }
+        }, 4000);
+
+        // Pause auto-scroll on hover
+        const carousel = document.querySelector('.partners-carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoScroll);
+        });
+        carousel.addEventListener('mouseleave', () => {
+            autoScroll = setInterval(() => {
+                if (position > maxPosition) {
+                    position -= itemWidth;
+                    track.style.transform = `translateX(${position}px)`;
+                    updateButtons();
+                } else {
+                    position = 0;
+                    track.style.transform = `translateX(${position}px)`;
+                    updateButtons();
+                }
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
